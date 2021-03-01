@@ -148,8 +148,8 @@ class TitleBar(QWidget):
         layout.addSpacerItem(QSpacerItem(
             40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum))
         # 利用Webdings字体来显示图标
-        font = self.font() or QFont()
-        font.setFamily('Webdings')
+        font = qta.font('fa', 15)
+        
         # 中文按钮
         self.buttonChinese = QPushButton(
             '中文', self, clicked=self.clickedChinese.emit, objectName='buttonChinese')
@@ -160,7 +160,7 @@ class TitleBar(QWidget):
         layout.addWidget(self.buttonEnglish)
         # 最小化按钮
         self.buttonMinimum = QPushButton(
-            '0', self, clicked=self.windowMinimumed.emit, font=font, objectName='buttonMinimum')
+            chr(0xf2d1), self, clicked=self.windowMinimumed.emit, font=font, objectName='buttonMinimum')
         layout.addWidget(self.buttonMinimum)
         # 最大化/还原按钮
         #self.buttonMaximum = QPushButton(
@@ -168,7 +168,7 @@ class TitleBar(QWidget):
         #layout.addWidget(self.buttonMaximum)
         # 关闭按钮
         self.buttonClose = QPushButton(
-            'r', self, clicked=self.windowClosed.emit, font=font, objectName='buttonClose')
+            chr(0xf00d), self, clicked=self.windowClosed.emit, font=font, objectName='buttonClose')
         layout.addWidget(self.buttonClose)
         # 初始高度
         self.setHeight()
@@ -251,8 +251,7 @@ class FramelessWindow(QWidget):
         self.border_width = 8
         self.lang = "cn"
         #palette1 = QtGui.QPalette()
-        #palette1.setBrush(self.backgroundRole(), QtGui.QBrush(
-        #    QtGui.QPixmap('log0.jpg')))  # 设置登录背景图片
+        #palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QColor(55,55,255,127)))  # 设置登录背景图片
         #self.setPalette(palette1)
         #self.setAutoFillBackground(True)
         self.setGeometry(300, 300, 250, 150)
@@ -364,6 +363,13 @@ class FramelessWindow(QWidget):
         rect.setWidth(rect.width()-9)
         rect.setHeight(rect.height()-9)
         pat2.drawRoundedRect(rect, 4, 4)
+        
+        rect.setHeight(33)
+        pat2.setBrush(QColor(130,130,200))
+        pat2.drawRoundedRect(rect, 4, 4)
+        rect.setTop(19)
+        rect.setHeight(23)
+        pat2.drawRect(rect)
 
 
     def mousePressEvent(self, event):  ##事件开始
