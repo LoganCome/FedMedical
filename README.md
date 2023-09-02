@@ -1,8 +1,6 @@
-## Hi 👋
+## FedMedical
 
-README [<a href="README.md">EN</a>|<a href="README_CN.md">CN</a>]
-
-Github Page: See <a href="https://beiyuouo.github.io/paddle-fl-gui/">Here</a>
+This tool was developed by for X-ray images identification with a federated learning framework.
 
 ## Description
 
